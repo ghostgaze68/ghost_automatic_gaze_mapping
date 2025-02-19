@@ -230,14 +230,14 @@ with open(output_file, 'w') as file:
                             reference_image_h, reference_image_w = reference_image.shape[:2]
                             
                             data = {
-                                'keypoints0': torch.from_numpy(ref_keypoints).float().unsqueeze(0).to(device),  # Reference image keypoints (target)
-                                'keypoints1': torch.from_numpy(frame_keypoints).float().unsqueeze(0).to(device),  # Frame keypoints (source)
-                                'descriptors0': torch.from_numpy(ref_descriptors).float().unsqueeze(0).to(device),  # Reference image descriptors (target)
-                                'descriptors1': torch.from_numpy(frame_descriptors).float().unsqueeze(0).to(device),  # Frame descriptors (source)
-                                'scores0': torch.from_numpy(ref_scores).float().unsqueeze(0).to(device),  # Reference image scores (target)
-                                'scores1': torch.from_numpy(frame_scores).float().unsqueeze(0).to(device),  # Frame scores (source)
-                                'image0': torch.empty((1, 1) + reference_image.shape[:2]).to(device),  # Dummy image tensor for reference image (target)
-                                'image1': torch.empty((1, 1) + frame_image.shape[:2]).to(device)  # Dummy image tensor for frame image (source)
+                                'keypoints0': torch.from_numpy(ref_keypoints).float().unsqueeze(0).to(device), 
+                                'keypoints1': torch.from_numpy(frame_keypoints).float().unsqueeze(0).to(device),
+                                'descriptors0': torch.from_numpy(ref_descriptors).float().unsqueeze(0).to(device),
+                                'descriptors1': torch.from_numpy(frame_descriptors).float().unsqueeze(0).to(device), 
+                                'scores0': torch.from_numpy(ref_scores).float().unsqueeze(0).to(device), 
+                                'scores1': torch.from_numpy(frame_scores).float().unsqueeze(0).to(device),
+                                'image0': torch.empty((1, 1) + reference_image.shape[:2]).to(device),
+                                'image1': torch.empty((1, 1) + frame_image.shape[:2]).to(device)
                             }
                         
                             with torch.no_grad():
